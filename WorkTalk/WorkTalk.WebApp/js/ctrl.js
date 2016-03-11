@@ -53,7 +53,7 @@ app.controller('chatCtrl', ['$scope', '$rootScope', 'wsServ',
     var inMessage = this.message;
     console.log(inMessage);
     if (inMessage !== "") {
-      wsServ.send(inMessage);
+      wsServ.getSocket().send(inMessage);
     };
     this.message = "";
   };
