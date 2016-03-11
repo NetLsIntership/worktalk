@@ -48,12 +48,13 @@ app.controller('chatCtrl', ['$scope', '$rootScope', 'wsServ',
     return style;
   };
 
-  $scope.message = "";
+  $scope.message = "test";
   $scope.sendMessage = function() {
     var inMessage = this.message;
     console.log(inMessage);
     if (inMessage !== "") {
-      wsServ.getSocket().send(inMessage);
+      var socket = wsServ.self;
+      socket.send(inMessage);
     };
     this.message = "";
   };
