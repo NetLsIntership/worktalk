@@ -16,5 +16,12 @@ serv.factory('wsServ', ['$rootScope', function ($rootScope) {
     return inMessage;
   };
 
+  socket.sendMessage = function () {
+    if(this.$scope.message !== "") {
+      socket.send(this.$scope.message);
+      this.$scope.message = "";
+    }
+  };
+
   return socket;
 }])

@@ -50,12 +50,7 @@ app.controller('chatCtrl', ['$scope', '$rootScope', 'wsServ',
 
   $scope.message = "";
 
-  $scope.sendMessage = function () {
-    if(this.$scope.message !== "") {
-      wsServ.send(this.$scope.message);
-      this.$scope.message = "";
-    }
-  };
+  $scope.sendMessage = wsServ.sendMessage();
 
   $scope.chatStack = $rootScope.chatStack
 
