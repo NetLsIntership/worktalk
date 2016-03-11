@@ -36,7 +36,7 @@ app.controller('userListCtrl', ['$scope', function ($scope) {
 }]);
 
 app.controller('chatCtrl', ['$scope', '$rootScope', 'wsServ',
- function ($scope, $rootScope) {
+ function ($scope, $rootScope, wsServ) {
 
   $scope.isMyPost = function(user) {
     var style = "";
