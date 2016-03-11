@@ -10,6 +10,7 @@ namespace WorkTalk.Domain.Entities
     {
         public Guid Id { get; set; }
         public Guid Sender { get; set; }
+        public DateTime Time { get; set; }
         public string Text { get; set; }
     }
 }
