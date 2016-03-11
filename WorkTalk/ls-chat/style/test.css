@@ -1,0 +1,130 @@
+/* 
+  general style rules
+*/
+.nav-padding {
+  padding-top: 60px;
+}
+.bottom-padding {
+  padding-bottom: 60px;
+}
+.full-height {
+  background: none;
+  position: absolute;
+  top: 60px;
+  bottom: 60px;
+  overflow-y: auto;
+}
+.left-col {
+  left: 0;
+}
+.right-col {
+  right: 0;
+}
+/*
+  modals style
+*/
+/* 
+  contacts section style
+*/
+.contact-item {
+  position: relative;
+  height: 50px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+.contact-item .contact-avatar {
+  width: 50px;
+  heigth: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.contact-item .contact-avatar img {
+  width: 50px;
+  height: 50px;
+}
+.contact-item .user-name {
+  padding-top: 10px;
+  margin-left: 65px;
+  font-size: 1.3em;
+}
+/* 
+  chat section style
+*/
+.message-stack-wrapper {
+  position: relative;
+  margin: 30px 0 10px 0;
+  overflow-y: auto;
+}
+.message-stack-wrapper .message-item {
+  width: 80%;
+  position: relative;
+  margin: 0 10% 10px 0;
+  min-height: 52px;
+}
+.message-stack-wrapper .message-item .contact-avatar {
+  width: 50px;
+  heigth: 50px;
+  position: absolute;
+  left: 0;
+}
+.message-stack-wrapper .message-item .contact-avatar img {
+  width: 50px;
+  height: 50px;
+}
+.message-stack-wrapper .message-item .message-text {
+  margin-left: 80px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  border: 1px solid #FFF;
+  min-height: 50px;
+  background-color: #EAE9E9;
+}
+.message-stack-wrapper .message-item-my {
+  width: 80%;
+  position: relative;
+  margin: 0 0 10px 10%;
+  min-height: 52px;
+}
+.message-stack-wrapper .message-item-my .contact-avatar {
+  width: 50px;
+  heigth: 50px;
+  position: absolute;
+  right: 0px;
+}
+.message-stack-wrapper .message-item-my .contact-avatar img {
+  width: 50px;
+  height: 50px;
+}
+.message-stack-wrapper .message-item-my .message-text {
+  margin-right: 80px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  border: 1px solid #FFF;
+  min-height: 50px;
+  text-align: right;
+  background-color: #f4f3f3;
+}
+/*
+  input area style
+*/
+/* .input-area {
+  position: relative;
+  padding: 10px 0;
+  input {
+    width: 100%;
+    padding-right: 55px;
+  }
+  button{
+    position: absolute;
+    top: 10px;
+    right: 0;
+    width: 55px;
+  }
+} */
+.input-area {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
