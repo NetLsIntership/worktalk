@@ -58,7 +58,5 @@ app.controller('chatCtrl', ['$scope', 'wsServ',
     };
     this.message = "";
   };
-  $scope.chatStack = wsServ.chatStack;
-  $scope.status = wsServ.isConnested;
-
+  $scope.chatStack.$apply(wsServ.chatStack);
 }]);
