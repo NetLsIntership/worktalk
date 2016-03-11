@@ -51,12 +51,13 @@ app.controller('chatCtrl', ['$scope', '$rootScope', 'wsServ',
   $scope.message = "";
   $scope.sendMessage = function() {
     var inMessage = this.message;
+    console.log(inMessage);
     if (inMessage !== "") {
       wsServ.send(inMessage);
     };
     this.message = "";
   };
-  $scope.chatStack = $rootScope.chatStack;
-  $scope.status = $rootScope.isConnested;
+  $scope.chatStack = $rootScope.localStorage.chatStack;
+  $scope.status = $rootScope.localStorage.isConnested;
 
 }]);
