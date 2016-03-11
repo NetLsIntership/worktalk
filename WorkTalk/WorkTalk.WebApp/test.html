@@ -67,6 +67,7 @@
       <!-- start of chat section -->
       <div class="col-xs-12 col-sm-8 full-height left-col"
            data-ng-controller="chatCtrl">
+           <p ng-bind="status"></p>
         
         <div class="message-stack-wrapper">
           <div data-ng-repeat="m in chatStack"
