@@ -36,7 +36,7 @@ app.controller('userListCtrl', ['$scope', function ($scope) {
 }]);
 
 app.controller('chatCtrl', ['$scope', 'wsServ',
- function ($scope, $rootScope, wsServ) {
+ function ($scope, wsServ) {
 
   $scope.isMyPost = function(user) {
     var style = "";
@@ -58,7 +58,7 @@ app.controller('chatCtrl', ['$scope', 'wsServ',
     };
     this.message = "";
   };
-  $scope.chatStack = wsServ.localStorage.chatStack;
-  $scope.status = wsServ.localStorage.isConnested;
+  $scope.chatStack = wsServ.chatStack;
+  $scope.status = wsServ.isConnested;
 
 }]);
