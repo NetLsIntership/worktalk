@@ -1,24 +1,23 @@
 var serv = angular.module('appServ', []);
 
-serv.factory('wsServ', ['$rootScope', function wsServ ($rootScope) {
+serv.factory('wsServ', [function wsServ () {
   var uri = 'ws://' + window.location.hostname + '/api/Chat' + '?username=testUser';
   var socket = new WebSocket(uri);
   socket.self = socket;
-  $rootScope.localStorage = {};
-  $rootScope.localStorage.chatStack = [];
+  socket.localStorage = {};
+  socket.localStorage.chatStack = [];
 
   socket.onopen = function () {
     if(socket !== undefined) {
-      $rootScope.localStorage.isConnected = true;
+      socket.localStorage.isConnected = true;
     } else {
-      $rootScope.localStorage.isConnected = false;
+      socket.localStorage.isConnected = false;
     };
-    console.log($rootScope.localStorage.isConnected);
   };
 
-  socket.onmessage = function (event, $rootScope) {
+  socket.onmessage = function (event) {
     var inMessage = event.data;
-    $rootScope.localStorage.chatStack.push(inMessage);
+    socket.localStorage.chatStack.push(inMessage);
     return inMessage;
   };
 
