@@ -11,13 +11,12 @@ using WorkTalk.WebApp.Controllers.Handlers;
 
 namespace WorkTalk.WebApp.Controllers
 {
-    public partial class ChatController : ApiController
+    public class ChatController : ApiController
     {
 
-        public HttpResponseMessage Get(string username, string password)
+        public HttpResponseMessage Get(string username/*, string password*/)
         {
-            HttpContext.Current.AcceptWebSocketRequest(new ChatWebSocketHandler(username,
-                password));
+            HttpContext.Current.AcceptWebSocketRequest(new ChatWebSocketHandler(username/*,password*/));
             return Request.CreateResponse(HttpStatusCode.SwitchingProtocols);
         }
 

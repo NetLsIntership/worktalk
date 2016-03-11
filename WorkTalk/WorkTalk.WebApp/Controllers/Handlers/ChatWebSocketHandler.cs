@@ -12,18 +12,18 @@ namespace WorkTalk.WebApp.Controllers.Handlers
         IUserRepository _userRepository = new UserRepository(new RedisClient("localhost"));
         private static WebSocketCollection _chatClients = new WebSocketCollection();
         private string _username;
-        private string _password;
+        //private string _password;
 
-        public ChatWebSocketHandler(string username, string password)
+        public ChatWebSocketHandler(string username/*, string password*/)
         {
             _username = username;
-            _password = password;
+            //_password = password;
         }
 
         public override void OnOpen()
         {
             _chatClients.Add(this);
-            _userRepository.Save(new User { Name = _username, Password = _password });
+            _userRepository.Save(new User { Name = _username/*, Password = _password*/ });
         }
 
         public override void OnMessage(string message)

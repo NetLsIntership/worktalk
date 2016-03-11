@@ -22,7 +22,7 @@ namespace WorkTalk.Domain.Implementation
             return Client.GetAll();
         }
 
-        public User Get(Guid id)
+        public User GetById(Guid id)
         {
             return Client.GetById(id);
         }

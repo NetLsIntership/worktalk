@@ -15,9 +15,9 @@
      $(document).ready(function () {
          
          var username = prompt('Please enter a username:');
-         var password = prompt('Please enter a password:');
-         
-            var uri = 'ws://' + window.location.hostname + window.location.pathname.replace('default.html', 'api/Chat') + '?username=' + username + '&password=' + password;
+         //var password = prompt('Please enter a password:');
+
+         var uri = 'ws://' + window.location.hostname + window.location.pathname.replace('default.html', 'api/Chat') + '?username=' + username;// + '&password=' + password;
              websocket = new WebSocket(uri);
           
              websocket.onopen = function () {

@@ -11,5 +11,8 @@ using WorkTalk.Domain.Implementation;
 
 namespace ForTesting
 {
-   
+    class Program
+    {
+         static void Main() { }
+    }
 }
