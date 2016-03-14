@@ -51,6 +51,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,6 +71,10 @@
     <ProjectReference Include="..\WorkTalk.Domain\WorkTalk.Domain.csproj">
       <Project>{0e87c417-30c4-4f5b-bd6c-550afa1b4f65}</Project>
       <Name>WorkTalk.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WorkTalk.WebApp\WorkTalk.WebApp.csproj">
+      <Project>{8d5b51ce-8dc6-44e6-a95e-64963483a961}</Project>
+      <Name>WorkTalk.WebApp</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

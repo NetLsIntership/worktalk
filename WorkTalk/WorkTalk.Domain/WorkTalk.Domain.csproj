@@ -60,6 +60,7 @@
     <Compile Include="Abstract\IUserRepository.cs" />
     <Compile Include="Entities\Message.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Excepitons\UserIsRegisteredException.cs" />
     <Compile Include="Implementation\MessageRepository.cs" />
     <Compile Include="Implementation\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +68,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -6,8 +6,10 @@ namespace WorkTalk.Domain.Abstract
 {
     public interface IUserRepository
     {
-        IList<User> GetAll();
+        IEnumerable<User> GetAll();
         User GetById(Guid id);
+        User GetByName(string name);
         User Save(User user);
+        bool IsUserExists(User user);
     }
 }

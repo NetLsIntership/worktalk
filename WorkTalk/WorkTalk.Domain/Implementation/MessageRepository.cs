@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using ServiceStack.Messaging;
 using ServiceStack.Redis;
 using ServiceStack.Redis.Generic;
 using WorkTalk.Domain.Abstract;
+using WorkTalk.Domain.Entities;
 
 namespace WorkTalk.Domain.Implementation
 {

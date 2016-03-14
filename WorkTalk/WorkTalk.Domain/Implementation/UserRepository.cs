@@ -1,6 +1,8 @@
 ﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
 using ServiceStack.Redis;
 using ServiceStack.Redis.Generic;
 using WorkTalk.Domain.Abstract;
@@ -17,7 +19,7 @@ namespace WorkTalk.Domain.Implementation
             Client = client.As<User>();
         }
 
-        public IList<User> GetAll()
+        public IEnumerable<User> GetAll()
         {
             return Client.GetAll();
         }
@@ -32,6 +34,18 @@ namespace WorkTalk.Domain.Implementation
             if (user.Id == default(Guid))
                 user.Id = Guid.NewGuid();
             return Client.Store(user);
+        }
+
+        public User GetByName(string name)
+        {
+            var users = GetAll();
+            return users.FirstOrDefault(u => u.Name.Equals(name));
+        }
+
+        public bool IsUserExists(User user)
+        {
+            var users = GetAll();
+            return users.Any(u => user.Name.Equals(u.Name) && user.Password.Equals(u.Password));
         }
     }
 }

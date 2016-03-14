@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using ServiceStack.Messaging;
+using WorkTalk.Domain.Entities;
 
 namespace WorkTalk.Domain.Abstract
 {
