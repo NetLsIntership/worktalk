@@ -6,8 +6,11 @@ namespace WorkTalk.Domain.Abstract
 {
     public interface IMessageRepository
     {
-        IList<Message> GetAll();
-        Message Get(Guid id);
+        IEnumerable<Message> GetAll();
+        IEnumerable<Message> GetLastDay();
+        IEnumerable<Message> GetLastWeek();
+        IEnumerable<Message> GetLastMoonth();
+            Message Get(Guid id);
         Message Save(Message message);
     }
 }

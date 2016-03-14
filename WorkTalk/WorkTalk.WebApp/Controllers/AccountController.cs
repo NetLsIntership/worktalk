@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Http;
+using Newtonsoft.Json.Linq;
 using ServiceStack.Redis;
 using WorkTalk.Domain.Abstract;
 using WorkTalk.Domain.Entities;
@@ -13,18 +14,17 @@ namespace WorkTalk.WebApp.Controllers
     {
         IUserRepository _userRepository = new UserRepository(new RedisClient("localhost"));
 
-        [HttpGet]
-        public IEnumerable<User> GetAll()
-        {
-            return _userRepository.GetAll();
-        }
+        //[HttpPost]
+        //[Route("api/account/signin")]
+        //public  SignIn (JObject obj)
+        //{
 
-        [HttpPost]
-        public User Register(User user)
+        //    return _userRepository.SignIn(username/*, password*/);
+        //}
+
+        public Guid SignUp(string username, string password)
         {
-            if (_userRepository.IsUserExists(user))
-                throw new UserIsRegisteredException("There is registered user with this credentials");
-            return _userRepository.Save(user);
+            return Guid.Empty;
         }
     }
 }

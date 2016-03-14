@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.Web.WebSockets;
 using ServiceStack.Redis;
 using WorkTalk.Domain.Abstract;
@@ -32,6 +33,16 @@ namespace WorkTalk.WebApp.Controllers.Handlers
         {
             _chatClients.Broadcast(_user.Name + ": " + message);
             _messageRepository.Save(new Message { Id = Guid.NewGuid(), Sender = _user.Id, Text = message, Time = DateTime.UtcNow });
+        }
+
+        private string GetMessageHistory()
+        {
+            string history = string.Empty;
+            foreach (var message in _messageRepository.GetAll())
+            {
+                history += String.Format("{0} : {1} at {2} \n", _userRepository.GetById(message.Sender).Name, message.Text, message.Time.ToString("f"));
+            }
+            return history;
         }
     }
 }

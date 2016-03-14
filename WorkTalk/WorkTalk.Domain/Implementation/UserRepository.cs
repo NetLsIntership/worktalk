@@ -47,5 +47,18 @@ namespace WorkTalk.Domain.Implementation
             var users = GetAll();
             return users.Any(u => user.Name.Equals(u.Name) && user.Password.Equals(u.Password));
         }
+
+        public Guid SignIn(string username)
+        {
+            var user = GetAll().First(u => u.Name.Equals(username)/* && u.Password.Equals(password)*/);
+            if (user != null)
+                return user.Id;
+            return Guid.Empty;
+        }
+
+        public User SignUp()
+        {
+            return new User();
+        }
     }
 }

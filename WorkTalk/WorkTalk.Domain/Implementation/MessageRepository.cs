@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using ServiceStack.Redis;
 using ServiceStack.Redis.Generic;
 using WorkTalk.Domain.Abstract;
@@ -15,9 +16,24 @@ namespace WorkTalk.Domain.Implementation
         {
             _client = client.As<Message>();
         } 
-        public IList<Message> GetAll()
+        public IEnumerable<Message> GetAll()
         {
             return _client.GetAll();
+        }
+
+        public IEnumerable<Message> GetLastDay()
+        {
+            return _client.GetAll().Where(m => m.Time > DateTime.Today.AddDays(-2));
+        }
+
+        public IEnumerable<Message> GetLastWeek()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Message> GetLastMoonth()
+        {
+            throw new NotImplementedException();
         }
 
         public Message Get(Guid id)

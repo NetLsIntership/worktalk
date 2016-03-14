@@ -11,5 +11,6 @@ namespace WorkTalk.Domain.Abstract
         User GetByName(string name);
         User Save(User user);
         bool IsUserExists(User user);
+        Guid SignIn(string username/*, string password*/);
     }
 }
