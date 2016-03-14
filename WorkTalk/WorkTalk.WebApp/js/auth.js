@@ -60,7 +60,7 @@ auth.controller('AuthCtrl', ['$scope', '$state', 'auth',
       auth.register($scope.user).error(function(error){
         $scope.error = error;
       }).then(function () {
-        $state.go('home');
+        $state.go('/');
       });
     };
 

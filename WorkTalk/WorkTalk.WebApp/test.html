@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-ng-app="lsChat">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +7,10 @@
   <title>test</title>
   <link rel="stylesheet" href="style/bootstrap.min.css">
   <link rel="stylesheet" href="style/test.css">
+
   <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-</head>
-<body data-ng-app="lsChat">
+
+<body data-ng-controller="chatCtrl">
 
   <!-- modals section start -->
   <!-- login modal start -->
@@ -49,7 +50,7 @@
   <!-- login modal end -->
   <!-- modals section end -->
 
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
       <button type="button" 
               data-toggle="modal"
@@ -65,19 +66,15 @@
     
     <div class="row">
       <!-- start of chat section -->
-      <div class="col-xs-12 col-sm-8 full-height left-col"
-           data-ng-controller="chatCtrl">
-           <p ng-bind="status"></p>
-        
+      <div class="col-xs-12 col-sm-8 full-height left-col">
         <div class="message-stack-wrapper">
           <div data-ng-repeat="m in chatStack"
                class="{{isMyPost(m.user)}}">
             <div class="contact-avatar">
               <img src="img/placeholder_ava.jpg" alt="ava">
             </div>
-            <div class="message-text" data-ng-bind="m.message"></div>
+            <div class="message-text" data-ng-bind="m.text"></div>
           </div>
-
         </div>
 
       </div>
@@ -104,38 +101,37 @@
 
     </div>
 
-    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-      <div class="container-fluid">
-        <div class="row">
-          
-          <div class="col-sm-8 col-xs-12"
-               data-ng-controller="chatCtrl">
-            <form class="input-area">
-              <div class="input-group">
-                <input type="text" 
-                       class="form-control" 
-                       placeholder="Enter you massage here..."
-                       data-ng-model="message">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" 
-                          type="button"
-                          data-ng-click="sendMessage()">Send</button>
-                </span>
-              </div><!-- /input-group -->
-            </form><!-- /form input-area-->
-          </div>
-
-          <div class="col-sm-4 hidden-xs">
-            
-          </div>
-
-        </div>
-      </div>
-    </nav>
-
   </div>
+  <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+    <div class="container-fluid">
+      <div class="row">
+        
+        <div class="col-sm-8 col-xs-12">
+          <form class="input-area">
+            <div class="input-group">
+              <input type="text" 
+                     class="form-control" 
+                     placeholder="Enter you massage here..."
+                     ng-model="message">
+              <span class="input-group-btn">
+                <button class="btn btn-default" 
+                        type="button"
+                        data-ng-click="sendText()">Send</button>
+              </span>
+            </div><!-- /input-group -->
+          </form><!-- /form input-area-->
+        </div>
+
+        <div class="col-sm-4 hidden-xs">
+          
+        </div>
+
+      </div>
+    </div>
+  </nav>
 
 <script src='js/angular.js'></script>
+<script src="js/angular-resource.js"></script>
 <script src="js/app.js"></script>
 <script src="js/auth.js"></script>
 <script src="js/ctrl.js"></script>
@@ -143,5 +139,6 @@
 
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
 </body>
 </html>
