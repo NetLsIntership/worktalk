@@ -1,62 +1,48 @@
-'use strict'
-var app = angular.module('appCtrl', []);
+var appCtrl = angular.module('appCtrl', []);
 
-app.controller('userListCtrl', ['$scope', function ($scope) {
+appCtrl.controller('userListCtrl', ['$scope', function ($scope) {
   $scope.users = [
     {
       name: 'testUser1',
       status: 'online'
-    },
-    {
-      name: 'testUser2',
-      status: 'away'
-    },
-    {
-      name: 'testUser3',
-      status: 'offline'
-    },
-    {
-      name: 'testUser1',
-      status: 'online'
-    },
-    {
-      name: 'testUser2',
-      status: 'away'
-    },
-    {
-      name: 'testUser1',
-      status: 'online'
-    },
-    {
-      name: 'testUser2',
-      status: 'away'
     }
   ];
   $scope.test = "test";
 }]);
 
-app.controller('chatCtrl', ['$scope', 'wsServ',
- function ($scope, wsServ) {
+appCtrl.controller('chatCtrl', ['$scope', '$rootScope', 'socketService',
+ function ($scope, $rootScope, socketService) {
+  
+  $scope.chatStack = [];
+  var s = socketService;
+  s.open();
+
+  s.listener(function(e) {
+    console.log(e.data, ' message event');
+    $scope.$apply($scope.chatStack.push(JSON.parse(e.data)));
+    console.log($scope.chatStack);
+  });
 
   $scope.isMyPost = function(user) {
     var style = "";
-    if ("testUser2" === user) {
+    if ($rootScope.user === user) {
       style = "message-item-my pull-right";
     } else {
-      style = "message-item pull-left";
+      style = "message-item pull-left"; 
     };
     return style;
   };
 
-  $scope.message = "test";
-  $scope.sendMessage = function() {
-    var inMessage = this.message;
-    console.log(inMessage);
-    if (inMessage !== "") {
-      var socket = wsServ.self;
-      socket.send(inMessage);
+  $scope.sendText = function () {
+    if ($scope.message === "") return;
+    var msg = {
+      type: 'message',
+      id:   1,
+      date: Date.now()
     };
-    this.message = "";
+    msg.text = $scope.message;
+    msg.user = $rootScope.user;
+    socketService.send(JSON.stringify(msg));
+    $scope.message = "";
   };
-  $scope.chatStack.$apply(wsServ.chatStack);
 }]);
