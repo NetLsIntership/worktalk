@@ -5,7 +5,7 @@ using WorkTalk.Domain.Abstract;
 using WorkTalk.Domain.Entities;
 using WorkTalk.Domain.Implementation;
 
-namespace WorkTalk.WebApp.Controllers.Handlers
+namespace WorkTalk.WebApp.Controllers.Api.Handlers
 {
     public class ChatWebSocketHandler : WebSocketHandler
     {

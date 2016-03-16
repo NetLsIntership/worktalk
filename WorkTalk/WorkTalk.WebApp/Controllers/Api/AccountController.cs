@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 using ServiceStack.Redis;
 using WorkTalk.Domain.Abstract;
@@ -7,7 +6,7 @@ using WorkTalk.Domain.Entities;
 using WorkTalk.Domain.Excepitons;
 using WorkTalk.Domain.Implementation;
 
-namespace WorkTalk.WebApp.Controllers
+namespace WorkTalk.WebApp.Controllers.Api
 {
     public class AccountController : ApiController
     {
